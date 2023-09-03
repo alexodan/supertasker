@@ -1,14 +1,26 @@
 import { useState } from 'react';
+import { userApi } from '../services/api-service';
+
+const { useCreateUserMutation } = userApi;
 
 const CreateUser = () => {
   const [realName, setRealName] = useState('');
   const [alterEgo, setAlterEgo] = useState('');
+
+  const [createUser, { data }] = useCreateUserMutation();
+
+  console.log('New data?:', data);
 
   return (
     <form
       className="create-user"
       onSubmit={(e) => {
         e.preventDefault();
+        createUser({
+          alterEgo,
+          realName,
+          tasks: [],
+        });
       }}
     >
       <label htmlFor="new-user-real-name">

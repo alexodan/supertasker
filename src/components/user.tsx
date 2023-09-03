@@ -1,16 +1,21 @@
 import { memo, useState } from 'react';
 import UserEdit from './user-edit';
+import { userApi } from '../services/api-service';
 
 type UserProps = {
   user: User;
 };
 
+const { useDeleteUserMutation } = userApi;
+
 const toggle = (b: boolean): boolean => !b;
 
 const User = ({ user }: UserProps) => {
   const [editing, setEditing] = useState(false);
-  const removeUser = ({ id }: { id: string }) => {
-    console.log(`One day, this will remove a user with the ID of ${id}.`);
+  const [deleteUser] = useDeleteUserMutation();
+
+  const handleRemove = ({ id }: { id: string }) => {
+    deleteUser(id);
   };
 
   return (
@@ -26,7 +31,7 @@ const User = ({ user }: UserProps) => {
         <button
           className="destructive small"
           aria-label="Remove"
-          onClick={() => removeUser({ id: user.id })}
+          onClick={() => handleRemove({ id: user.id })}
         >
           Remove
         </button>

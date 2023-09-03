@@ -1,14 +1,17 @@
 import CreateUser from './create-user';
-import Task from './user';
+import User from './user';
+import { useGetUsersQuery } from '../services/api-service';
+import Loading from './loading';
 
 const UserList = () => {
-  const users: User[] = [];
+  const { data, isLoading } = useGetUsersQuery();
 
   return (
     <section className="user-list">
       <CreateUser />
-      {users.map((user) => (
-        <Task key={user.id} user={user} />
+      <Loading loading={isLoading} />
+      {data?.users.map((user) => (
+        <User key={user.id} user={user} />
       ))}
     </section>
   );

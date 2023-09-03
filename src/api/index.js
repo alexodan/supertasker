@@ -10,6 +10,7 @@ import {
 } from 'miragejs';
 import data from './data.json';
 import { statuses } from '../lib/statuses';
+import { nanoid } from 'nanoid';
 
 const ApplicationSerializer = RestSerializer.extend({});
 
@@ -69,6 +70,36 @@ export function makeServer({ environment = 'development' }) {
       this.get('columns');
       this.get('tasks');
       this.get('users');
+
+      this.del('tasks/:id');
+
+      this.del('users/:id', (schema, request) => {
+        const userId = request.params.id;
+        const user = schema.users.find(userId);
+        if (!user) {
+          return new Response(404, {}, { message: 'User not found' });
+        }
+        console.log('User tasks:', user.tasks);
+        // const tasks = user.tasks;
+        // tasks.forEach((task) => {
+        //   task.update({ user: null }); // Unlink user from tasks
+        // });
+        user.destroy(); // Delete the user
+        return user;
+      });
+
+      this.put('tasks/:id');
+      this.put('users/:id');
+
+      this.post('tasks');
+
+      this.post('/users', (schema, request) => {
+        const attrs = JSON.parse(request.requestBody);
+        return schema.users.create({
+          id: nanoid(),
+          ...attrs,
+        });
+      });
     },
 
     seeds(server) {
