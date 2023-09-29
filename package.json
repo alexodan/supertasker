@@ -29,7 +29,7 @@
     "format:fix": "prettier --write ."
   },
   "lint-staged": {
-    "*.tsx": [
+    "*.{ts,tsx,css}": [
       "prettier --write",
       "git add"
     ]
