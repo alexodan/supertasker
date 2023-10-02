@@ -9,8 +9,6 @@ const CreateUser = () => {
 
   const [createUser, { data }] = useCreateUserMutation();
 
-  console.log('New data?:', data);
-
   return (
     <form
       className="create-user"

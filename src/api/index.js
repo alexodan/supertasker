@@ -79,7 +79,6 @@ export function makeServer({ environment = 'development' }) {
         if (!user) {
           return new Response(404, {}, { message: 'User not found' });
         }
-        console.log('User tasks:', user.tasks);
         // const tasks = user.tasks;
         // tasks.forEach((task) => {
         //   task.update({ user: null }); // Unlink user from tasks
