@@ -28,7 +28,9 @@
     "prepare": "husky install",
     "precommit": "lint-staged",
     "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format:fix": "prettier --write .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "lint-staged": {
     "*.{ts,tsx,css}": [
@@ -62,6 +64,7 @@
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^6.0.0",
     "husky": "^8.0.0",
     "lint-staged": "^14.0.1",
     "postcss": "^8.4.19",
