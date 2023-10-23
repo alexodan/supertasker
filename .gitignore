@@ -28,3 +28,6 @@ yarn-error.log\*
 .vscode/settings.json
 .vscode/settings.json
 .vscode/settings.json
+
+# Sentry Config File
+.env.sentry-build-plugin
