@@ -26,6 +26,13 @@ const CreateTask = () => {
         />
       </label>
       <button type="submit">Create Task</button>
+      <button
+        onClick={() => {
+          throw new Error('Something went wrong');
+        }}
+      >
+        Break the world
+      </button>
     </form>
   );
 };
