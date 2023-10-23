@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/supertasker/static/css/main.228c57f0.css",
-    "main.js": "/supertasker/static/js/main.b7285485.js",
+    "main.js": "/supertasker/static/js/main.b8713742.js",
     "index.html": "/supertasker/index.html",
     "main.228c57f0.css.map": "/supertasker/static/css/main.228c57f0.css.map",
-    "main.b7285485.js.map": "/supertasker/static/js/main.b7285485.js.map"
+    "main.b8713742.js.map": "/supertasker/static/js/main.b8713742.js.map"
   },
   "entrypoints": [
     "static/css/main.228c57f0.css",
-    "static/js/main.b7285485.js"
+    "static/js/main.b8713742.js"
   ]
 }
