@@ -27,7 +27,7 @@ const Task = ({ task }: TaskProps) => {
         </button>
       </header>
       <div className="task-details">
-        <p className="task-status">{status}</p>
+        <p className="task-status">{status ?? 'Unassigned'}</p>
         <p className="task-user">
           {user ? (
             user.alterEgo

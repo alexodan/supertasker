@@ -1,8 +1,8 @@
 type Task = {
   id: string;
   title: string;
-  user?: User[id];
-  column?: StatusColumn['id'];
+  user?: User['id'];
+  column?: Status; // StatusColumn['id'];
 };
 
 type User = {

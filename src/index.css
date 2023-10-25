@@ -113,6 +113,10 @@ select {
   @apply sm:w-3/4;
 }
 
+.new-task-user {
+  @apply w-full;
+}
+
 .task-list,
 .user-list {
   @apply flex flex-col gap-4;
@@ -138,5 +142,5 @@ select {
 }
 
 .task-status {
-  @apply whitespace-nowrap rounded-lg bg-primary-200 px-2 text-center text-xs shadow-sm;
+  @apply whitespace-nowrap rounded-lg bg-primary-200 px-2 py-1 text-center text-xs shadow-sm;
 }
